@@ -1,4 +1,6 @@
 .slider {
+   width: 860px;
+   margin: 0 auto;
    &__img {
       position: relative;
       width:  100%;
@@ -7,5 +9,9 @@
       background-repeat: no-repeat;
       background-size: cover;
       transition: all .3s;
+      display: none;
+      &:first-child {
+         display: block;
+      }
    }
 }
