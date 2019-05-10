@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+    <img id="imageSlider"/>
+</body>
+<script>
+    let imgArray = [
+   'https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?cs=srgb&dl=beach-exotic-holiday-248797.jpg&fm=jpg',
+   'https://images.pexels.com/photos/36717/amazing-animal-beautiful-beautifull.jpg?cs=srgb&dl=dawn-hd-wallpaper-landscape-36717.jpg&fm=jpg',
+],
+currentIndex = 0;
+let imgDuration = 2000;
+
+function slideShow() {
+   document.querySelector('#imageSlider').src = imgArray[currentIndex];
+   currentIndex++;
+   if (currentIndex === imgArray.length) {
+      currentIndex = 0;
+   }
+   setTimeout("slideShow()", imgDuration);
+}
+console.log(imgArray);
+
+slideShow();
+</script>
+
+</html>
