@@ -1,17 +1,23 @@
 .slider {
    width: 860px;
    margin: 0 auto;
-   &__img {
+   &__images {
       position: relative;
-      width:  100%;
-      height: 500px;
-      background-position: 50% 50%;
-      background-repeat: no-repeat;
-      background-size: cover;
-      transition: all .3s;
-      display: none;
-      &:first-child {
-         display: block;
-      }
+      height: 550px;
    }
+   &__image {
+      width:  100%;
+      height: 520px;
+      position: absolute;
+      //left: 0;
+      opacity: 0;
+      transition: opacity 1s;
+   }
+   &__btns {
+      text-align: center;
+   }
+}
+
+.showed {
+   opacity: 1;
 }
