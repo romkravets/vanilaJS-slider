@@ -1,5 +1,5 @@
 import './index.scss';
-import { Slider } from './scripst/slider';
+import { Slider } from './scripts/slider';
 
 
  const sliderData = [

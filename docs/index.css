@@ -57,25 +57,25 @@ a {
     z-index: 2; }
 
 .slider__image[data-slider="slide-6"] {
-  background-color: rgba(103, 134, 133, 0.3); }
+  background-color: rgba(25, 129, 102, 0.3); }
 
 .slider__image[data-slider="slide-5"] {
-  background-color: rgba(104, 203, 75, 0.3); }
+  background-color: rgba(97, 129, 253, 0.3); }
 
 .slider__image[data-slider="slide-4"] {
-  background-color: rgba(15, 154, 112, 0.3); }
+  background-color: rgba(24, 164, 125, 0.3); }
 
 .slider__image[data-slider="slide-3"] {
-  background-color: rgba(191, 87, 128, 0.3); }
+  background-color: rgba(203, 37, 25, 0.3); }
 
 .slider__image[data-slider="slide-2"] {
-  background-color: rgba(94, 54, 11, 0.3); }
+  background-color: rgba(68, 43, 149, 0.3); }
 
 .slider__image[data-slider="slide-1"] {
-  background-color: rgba(71, 68, 130, 0.3); }
+  background-color: rgba(58, 117, 21, 0.3); }
 
 .slider__image[data-slider="slide-0"] {
-  background-color: rgba(98, 160, 38, 0.3); }
+  background-color: rgba(21, 132, 81, 0.3); }
 
 .slide__image {
   -ms-flex: 0 1 100%;
