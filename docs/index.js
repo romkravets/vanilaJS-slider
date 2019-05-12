@@ -9101,6 +9101,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var ROOT_CLASS_NAMES = 'slider';
+var SLIDES__CLASS__ALL = '.' + ROOT_CLASS_NAMES + '__image';
+var BUTTON_PREV_CLASS = '.' + ROOT_CLASS_NAMES + '__prev';
+var BUTTON_NEXT_CLASS = '.' + ROOT_CLASS_NAMES + '__next';
 var VISIBLE_CLASS = 'visible';
 
 var Slider = exports.Slider = function () {
@@ -9129,13 +9133,13 @@ var Slider = exports.Slider = function () {
             name = _sliderData$i.name,
             desc = _sliderData$i.desc;
 
-        var slideData = '\n           <div class="slider__image ' + (i == 0 ? 'visible' : '') + '" data-slider="slide-' + i + '">\n             <div class="slide-image">\n              <img src="' + img + '" />\n             </div>\n             <div class="slide-caption">\n               <div class="slide-caption-content">\n                 <div class="title-bg">\n                   <h1>' + name + '</h1>\n                 </div>\n                 <p>' + desc + '</p>\n               </div>\n             </div>\n           </div>\n         ';
+        var slideData = '\n           <div class="slider__image ' + (i == 0 ? 'visible' : '') + '" data-slider="slide-' + i + '">\n             <div class="slide__image">\n              <img src="' + img + '" />\n             </div>\n             <div class="slider__caption">\n               <div class="slider__caption-content">\n                 <div class="slider__caption-title">\n                   <h2>' + name + '</h2>\n                 </div>\n                 <p>' + desc + '</p>\n               </div>\n             </div>\n           </div>\n         ';
         this.slider.innerHTML += slideData;
       }
       var buttonContainer = '\n         <div class="slider__btns">\n            <input class="slider__prev" type="button" value="&#10094;"></input>\n            <input class="slider__next" type="button" value="&#10095;"></input>\n         </div>\n      ';
       this.rootElement.innerHTML += buttonContainer;
 
-      this.buttonPrev = document.querySelector('.slider__prev');
+      this.buttonPrev = document.querySelector(BUTTON_PREV_CLASS);
       this.buttonPrev.addEventListener('click', function () {
         slides[currentSlide].classList.remove(VISIBLE_CLASS);
         currentSlide--;
@@ -9143,20 +9147,20 @@ var Slider = exports.Slider = function () {
         slides[currentSlide].classList.add(VISIBLE_CLASS);
       });
 
-      this.buttonNext = document.querySelector('.slider__next');
+      this.buttonNext = document.querySelector(BUTTON_NEXT_CLASS);
       this.buttonNext.addEventListener('click', function () {
         slides[currentSlide].classList.remove(VISIBLE_CLASS);
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add(VISIBLE_CLASS);
       });
 
-      var slides = document.querySelectorAll(".slider__image");
+      var slides = document.querySelectorAll(SLIDES__CLASS__ALL);
       var currentSlide = 0;
       var slideInterval = setInterval(function () {
         slides[currentSlide].classList.remove(VISIBLE_CLASS);
         currentSlide = (currentSlide + 1) % slides.length;
         slides[currentSlide].classList.add(VISIBLE_CLASS);
-      }, 5000);
+      }, 7000);
     }
   }]);
 

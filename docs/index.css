@@ -57,45 +57,65 @@ a {
     z-index: 2; }
 
 .slider__image[data-slider="slide-6"] {
-  background-color: rgba(8, 129, 2, 0.25); }
+  background-color: rgba(103, 134, 133, 0.3); }
 
 .slider__image[data-slider="slide-5"] {
-  background-color: rgba(53, 108, 149, 0.25); }
+  background-color: rgba(104, 203, 75, 0.3); }
 
 .slider__image[data-slider="slide-4"] {
-  background-color: rgba(205, 4, 228, 0.25); }
+  background-color: rgba(15, 154, 112, 0.3); }
 
 .slider__image[data-slider="slide-3"] {
-  background-color: rgba(159, 156, 248, 0.25); }
+  background-color: rgba(191, 87, 128, 0.3); }
 
 .slider__image[data-slider="slide-2"] {
-  background-color: rgba(118, 1, 78, 0.25); }
+  background-color: rgba(94, 54, 11, 0.3); }
 
 .slider__image[data-slider="slide-1"] {
-  background-color: rgba(47, 220, 255, 0.25); }
+  background-color: rgba(71, 68, 130, 0.3); }
 
 .slider__image[data-slider="slide-0"] {
-  background-color: rgba(183, 170, 140, 0.25); }
+  background-color: rgba(98, 160, 38, 0.3); }
 
-.slide-image {
+.slide__image {
   -ms-flex: 0 1 100%;
       flex: 0 1 100%; }
-  .slide-image img {
+  .slide__image img {
     width: 100%;
     height: 75vh;
     object-fit: cover; }
     @media (min-width: 768px) {
-      .slide-image img {
+      .slide__image img {
         height: 100vh; } }
 
-.slide-caption {
+.slider__images {
+  max-width: 1000px;
+  margin: auto; }
+
+.slider__caption {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
   top: 60%;
   background-color: inherit; }
 
-.slide-caption-content {
+.slider__caption-title {
+  background-color: inherit;
+  padding: 0 .75em; }
+  .slider__caption-title h2 {
+    font-family: 'Racing Sans One', serif;
+    font-size: calc(28px + (44 - 28) * (100vw - 426px) / (768 - 426));
+    font-weight: 700;
+    line-height: 1.2;
+    padding: 5px 0; }
+    @media (max-width: 425px) {
+      .slider__caption-title h2 {
+        margin: 0; } }
+    @media (min-width: 768px) {
+      .slider__caption-title h2 {
+        font-size: 2.8125rem; } }
+
+.slider__caption-content {
   margin: auto;
   width: 100%;
   font-family: 'Roboto', sans-serif;
@@ -104,32 +124,12 @@ a {
   background-color: inherit;
   padding: 0 .5em; }
   @media (min-width: 768px) {
-    .slide-caption-content {
+    .slider__caption-content {
       width: 90%;
       line-height: 1.5;
       font-size: 1.25rem; } }
-  .slide-caption-content p {
+  .slider__caption-content p {
     padding: 0 1em; }
-
-.title-bg {
-  background-color: inherit;
-  padding: 0 .75em; }
-  .title-bg h1 {
-    font-family: 'Racing Sans One', serif;
-    font-size: calc(28px + (44 - 28) * (100vw - 426px) / (768 - 426));
-    font-weight: 700;
-    line-height: 1.2;
-    padding: 5px 0; }
-    @media (max-width: 425px) {
-      .title-bg h1 {
-        margin: 0; } }
-    @media (min-width: 768px) {
-      .title-bg h1 {
-        font-size: 2.8125rem; } }
-
-.slider__images {
-  max-width: 1000px;
-  margin: auto; }
 
 .slider__btns {
   z-index: 2;
