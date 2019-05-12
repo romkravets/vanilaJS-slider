@@ -5,7 +5,7 @@
 }
 
 @mixin randomRGBA() {
-  background-color: rgba(randomVal(), randomVal(), randomVal(), .25);
+  background-color: rgba(randomVal(), randomVal(), randomVal(), .30);
 }
 
 .slider__image {
@@ -36,62 +36,14 @@ $slides: 6;
   $slides: $slides - 1;
 }
 
-.slide-image {
+.slide__image {
   flex: 0 1 100%;
-
   img {
     width: 100%;
     height: 75vh;
     object-fit: cover;
-
     @media (min-width: 768px) {
       height: 100vh;
-    }
-  }
-}
-
-.slide-caption {
-  display: flex;
-  position: absolute;
-  top: 60%;
-  background-color: inherit;
-}
-
-.slide-caption-content {
-  margin: auto;
-  width: 100%;
-  font-family: 'Roboto', sans-serif;
-  line-height: 1;
-  font-size: calc(14px + (19 - 14) * (100vw - 426px) / (768 - 426));
-  background-color: inherit;
-  padding: 0 .5em;
-
-  @media(min-width: 768px) {
-    width: 90%;
-    line-height: 1.5;
-    font-size: 1.25rem;
-  }
-
-  p {
-    padding: 0 1em;
-  }
-}
-
-.title-bg {
-  background-color: inherit;
-  padding: 0 .75em;
-
-  h1 {
-    font-family: 'Racing Sans One', serif;
-    font-size: calc(28px + (44 - 28) * (100vw - 426px) / (768 - 426));
-    font-weight: 700;
-    line-height: 1.2;
-    padding: 5px 0;
-    @media(max-width: 425px) {
-      margin: 0;
-    }
-    @media(min-width: 768px) {
-      font-size: 2.8125rem;
     }
   }
 }
@@ -99,8 +51,49 @@ $slides: 6;
 .slider {
   &__images {
     max-width: 1000px;
-   // max-height: 100vh;
     margin: auto;
+  }
+  &__caption {
+    display: flex;
+    position: absolute;
+    top: 60%;
+    background-color: inherit;
+  }
+  &__caption-title {
+    background-color: inherit;
+    padding: 0 .75em;
+    & h2 {
+      font-family: 'Racing Sans One', serif;
+      font-size: calc(28px + (44 - 28) * (100vw - 426px) / (768 - 426));
+      font-weight: 700;
+      line-height: 1.2;
+      padding: 5px 0;
+      @media(max-width: 425px) {
+        margin: 0;
+      }
+      @media(min-width: 768px) {
+        font-size: 2.8125rem;
+      }
+    }
+  }
+  &__caption-content {
+    margin: auto;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    line-height: 1;
+    font-size: calc(14px + (19 - 14) * (100vw - 426px) / (768 - 426));
+    background-color: inherit;
+    padding: 0 .5em;
+
+    @media(min-width: 768px) {
+      width: 90%;
+      line-height: 1.5;
+      font-size: 1.25rem;
+    }
+
+    p {
+      padding: 0 1em;
+    }
   }
   &__btns {
     z-index: 2;
