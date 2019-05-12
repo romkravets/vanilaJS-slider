@@ -1,56 +1,71 @@
-const SHOWED_CLASS = 'showed';
+const VISIBLE_CLASS = 'visible';
 
 export class Slider {
-   constructor(rootElement, imgArray) {
-      this.slidePrev = this.slidePrev.bind(this);
-      this.slideNext = this.slideNext.bind(this);
-      this.slideToggler = this.slideToggler.bind(this);
-      this.rootElement = rootElement;
-      this.imgArray = imgArray;
-      this.btnPrev = document.querySelector('.slider__btns_prev');
-      this.btnNext = document.querySelector('.slider__btns_next');
-      this.images = document.querySelectorAll('.slider__image');
-      this.currentIndex = 0;
-      this.imgDuration = 5000;
-      this.render();
-      this.slideNext();
-      this.slidePrev();
-      this.slideToggler();
-   }
+   constructor(rootElement, sliderData) {
+         this.rootElement = rootElement;
+         this.sliderData = sliderData;
+         this.slider;
+         this.buttonContainer;
+         this.buttonPrev;
+         this.buttonNext;
+         this.render();
+    }
 
-   slidePrev() {
-      this.btnPrev.addEventListener('click', () => {
-         this.images[this.currentIndex].classList.remove(SHOWED_CLASS);
-         this.currentIndex--;
+    render() {
+      this.slider = document.createElement('div');
+      this.slider.classList.add('slider__images');
+      this.rootElement.appendChild(this.slider);
+  
+      for (let i = 0; i < this.sliderData.length; i++) {
+         const {img, name, desc} = this.sliderData[i];
+         const slideData = `
+           <div class="slider__image ${i == 0 ? 'visible' : ''}" data-slider="slide-${i}">
+             <div class="slide-image">
+              <img src="${img}" />
+             </div>
+             <div class="slide-caption">
+               <div class="slide-caption-content">
+                 <div class="title-bg">
+                   <h1>${name}</h1>
+                 </div>
+                 <p>${desc}</p>
+               </div>
+             </div>
+           </div>
+         `;
+         this.slider.innerHTML += slideData;
+       }
+       const buttonContainer = `
+         <div class="slider__btns">
+            <input class="slider__prev" type="button" value="&#10094;"></input>
+            <input class="slider__next" type="button" value="&#10095;"></input>
+         </div>
+      `;
+      this.rootElement.innerHTML += buttonContainer;
 
-         if(this.currentIndex < 0) {
-            this.currentIndex = this.images.length - 1;
-         }
-         this.images[this.currentIndex].classList.add(SHOWED_CLASS)
+      this.buttonPrev = document.querySelector('.slider__prev');
+      this.buttonPrev.addEventListener('click', () => {
+         slides[currentSlide].classList.remove(VISIBLE_CLASS);
+         currentSlide--;
+         if(currentSlide < 0 )
+         currentSlide = slides.length - 1;
+         slides[currentSlide].classList.add(VISIBLE_CLASS);
       })
-   }
 
-   slideNext() {
-      this.btnNext.addEventListener('click', () => {
-         this.images[this.currentIndex].classList.remove(SHOWED_CLASS);
-         this.currentIndex++;
-
-         if(this.currentIndex >= this.images.length) {
-            this.currentIndex = 0;
-         }
-         this.images[this.currentIndex].classList.add(SHOWED_CLASS);
+      this.buttonNext = document.querySelector('.slider__next');
+      this.buttonNext.addEventListener('click', () => {
+         slides[currentSlide].classList.remove(VISIBLE_CLASS);
+         currentSlide = (currentSlide + 1) % slides.length;
+         slides[currentSlide].classList.add(VISIBLE_CLASS);
       })
-      }
 
-   slideToggler() {
-         this.rootElement.src = this.imgArray[this.currentIndex];
-         this.currentIndex++;
-         if (this.currentIndex === this.imgArray.length) {
-            this.currentIndex = 0;
-         }
-         setTimeout(this.slideToggler, this.imgDuration);
-      }
+       const slides = document.querySelectorAll(".slider__image");
+         let currentSlide = 0;
+         const slideInterval = setInterval(() => {
+         slides[currentSlide].classList.remove(VISIBLE_CLASS);
+         currentSlide = (currentSlide + 1) % slides.length;
+         slides[currentSlide].classList.add(VISIBLE_CLASS);
+         }, 5000);
 
-   render() {
-   }
-}
+    }
+ }

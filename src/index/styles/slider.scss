@@ -1,23 +1,130 @@
-.slider {
-   width: 860px;
-   margin: 0 auto;
-   &__images {
-      position: relative;
-      height: 550px;
-   }
-   &__image {
-      width:  100%;
-      height: 520px;
-      position: absolute;
-      //left: 0;
-      opacity: 0;
-      transition: opacity 1s;
-   }
-   &__btns {
-      text-align: center;
-   }
+@import url('https://fonts.googleapis.com/css?family=Racing+Sans+One|Roboto');
+
+@function randomVal() {
+  @return random(256) - 1;
 }
 
-.showed {
-   opacity: 1;
+@mixin randomRGBA() {
+  background-color: rgba(randomVal(), randomVal(), randomVal(), .25);
+}
+
+.slider__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  z-index: 1;
+  transition: opacity 1s;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  &.visible {
+    opacity: 1;
+    z-index: 2;
+  }
+}
+
+$slides: 6;
+@while $slides>=0 {
+  .slider__image[data-slider="slide-#{$slides}"] {
+    @include randomRGBA();
+  }
+  $slides: $slides - 1;
+}
+
+.slide-image {
+  flex: 0 1 100%;
+
+  img {
+    width: 100%;
+    height: 75vh;
+    object-fit: cover;
+
+    @media (min-width: 768px) {
+      height: 100vh;
+    }
+  }
+}
+
+.slide-caption {
+  display: flex;
+  position: absolute;
+  top: 60%;
+  background-color: inherit;
+}
+
+.slide-caption-content {
+  margin: auto;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1;
+  font-size: calc(14px + (19 - 14) * (100vw - 426px) / (768 - 426));
+  background-color: inherit;
+  padding: 0 .5em;
+
+  @media(min-width: 768px) {
+    width: 90%;
+    line-height: 1.5;
+    font-size: 1.25rem;
+  }
+
+  p {
+    padding: 0 1em;
+  }
+}
+
+.title-bg {
+  background-color: inherit;
+  padding: 0 .75em;
+
+  h1 {
+    font-family: 'Racing Sans One', serif;
+    font-size: calc(28px + (44 - 28) * (100vw - 426px) / (768 - 426));
+    font-weight: 700;
+    line-height: 1.2;
+    padding: 5px 0;
+    @media(max-width: 425px) {
+      margin: 0;
+    }
+    @media(min-width: 768px) {
+      font-size: 2.8125rem;
+    }
+  }
+}
+
+.slider {
+  &__images {
+    max-width: 1000px;
+   // max-height: 100vh;
+    margin: auto;
+  }
+  &__btns {
+    z-index: 2;
+    position: relative;
+  }
+  &__prev, &__next {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    height: 100vh;
+    padding: 20px;
+    color: white;
+    padding-top: calc(4rem + (44 - 28) * (100vw - 426px) / (768 - 426));
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border: none;
+    background-color: transparent;
+    outline: none;
+    &:hover {
+      background-color: rgba(0,0,0,0.8);
+    }
+  }
+  &__next {
+    right: 0;
+  }
 }
