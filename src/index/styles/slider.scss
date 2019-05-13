@@ -105,12 +105,15 @@ $slides: 6;
     border: none;
     background-color: transparent;
     outline: none;
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.301)
+    }
   }
   &__prev {
-    padding-right: 10rem;
+    padding-right: 3.5rem;
   }
   &__next {
     right: 0;
-    padding-left: 10rem;
+    padding-left: 3.5rem;
   }
 }
