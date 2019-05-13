@@ -17,11 +17,6 @@
   opacity: 0;
   z-index: 1;
   transition: opacity 1s;
-
-  @media (min-width: 768px) {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
   &.visible {
     opacity: 1;
     z-index: 2;
@@ -40,11 +35,8 @@ $slides: 6;
   flex: 0 1 100%;
   img {
     width: 100%;
-    height: 75vh;
+    height: 100vh;
     object-fit: cover;
-    @media (min-width: 768px) {
-      height: 100vh;
-    }
   }
 }
 
@@ -113,11 +105,12 @@ $slides: 6;
     border: none;
     background-color: transparent;
     outline: none;
-    &:hover {
-      background-color: rgba(0,0,0,0.8);
-    }
+  }
+  &__prev {
+    padding-right: 10rem;
   }
   &__next {
     right: 0;
+    padding-left: 10rem;
   }
 }
